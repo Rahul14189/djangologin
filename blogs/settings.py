@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure--cfcf24n42fpc@4hgk2m+53qqql7s#8(*17=b0r&3thql+agc0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['django-env.eba-bz3icjpt.ap-south-1.elasticbeanstalk.com', '*']
 
 
 # Application definition
@@ -138,3 +138,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
+
+
+# For Resetting password, the verification mail will be stored in a file
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = str(BASE_DIR.joinpath('sent_emails'))
